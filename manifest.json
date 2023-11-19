@@ -3,7 +3,7 @@
     "manifest_version": 3,
     "name": "QuickSkip: YouTube Ad Blocker",
     "version": "1.0.1",
-    "description": "Cut down .",
+    "description": "Ad-Free, Hands-Free: That's QuickSkip.",
 
     "content_scripts": [
         {
@@ -17,5 +17,11 @@
         "matches": ["<all_urls>"],
         "resources": ["*", "**/*"]
         }
-    ]
+    ],
+
+    "icons": 
+        {
+        "64": "images/icon64.png",
+        "128": "images/icon128.png"
+        }
 }

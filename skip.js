@@ -4,7 +4,7 @@ console.log("IT'S WORKING!!!");
 
 let ad_shown = false;
 
-// Callback function executes with any change to the page's html (DOM)
+// callback function executes with any change to the page's html (DOM)
 var observer = new MutationObserver(function(mutations){
     // this is the same as doing control + f and searching for "div.ad-showing"
     const ad_container = document.querySelector("div.ad-showing");
@@ -16,15 +16,20 @@ var observer = new MutationObserver(function(mutations){
         ad_shown = true;
         console.log("Ad playing!!!");
 
+        let button_clicked = false;
+
         // for 2 seconds, attempt to click the skip button every 100ms
-        for(let time = 0; time < 2000; time += 50){
+        for(let time = 0; time <= 5000; time += 1){
+            if(button_clicked){
+                break;
+            }
             setTimeout(() => {
                 const button = document.querySelector("button.ytp-ad-skip-button, button.ytp-ad-skip-button-modern");
                 console.log(button);
                 
                 if(button){
                     button.click();
-                    console.log(`Button attempted to click after ${time}ms.`);
+                    button_clicked = true;
                 }
                 console.log(`Button attempted to click after ${time}ms - after.`);
             }, time);
