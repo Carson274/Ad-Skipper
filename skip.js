@@ -1,6 +1,6 @@
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
-console.log("IT'S WORKING!!!");
+console.log("QuickSkip is active.");
 
 let ad_shown = false;
 
@@ -14,7 +14,7 @@ var observer = new MutationObserver(function(mutations){
 
         // ad is active as a video
         ad_shown = true;
-        console.log("Ad playing!!!");
+        console.log("QuickSKip: Ad detected.");
 
         let button_clicked = false;
 
@@ -25,20 +25,20 @@ var observer = new MutationObserver(function(mutations){
             }
             setTimeout(() => {
                 const button = document.querySelector("button.ytp-ad-skip-button, button.ytp-ad-skip-button-modern");
-                console.log(button);
                 
                 if(button){
+                    console.log(button);
                     button.click();
                     button_clicked = true;
+                    console.log(`QuickSkip: Button clicked at ${time}ms.`);
                 }
-                console.log(`Button attempted to click after ${time}ms - after.`);
             }, time);
         }
     }  
     // check to see if ad is no longer playing
     else if(!ad_container && ad_shown) {
         ad_shown = false;
-        console.log("Ad no longer playing.");
+        console.log("QuickSkip: Ad no longer playing.");
     }
     
 });
