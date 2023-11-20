@@ -27,7 +27,6 @@ var observer = new MutationObserver(function(mutations){
                 const button = document.querySelector("button.ytp-ad-skip-button, button.ytp-ad-skip-button-modern");
                 
                 if(button){
-                    console.log(button);
                     button.click();
                     button_clicked = true;
                     console.log(`QuickSkip: Button clicked at ${time}ms.`);
